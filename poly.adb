@@ -1,6 +1,13 @@
 with Ada.Text_IO; use Ada.Text_IO;
+
+with polylink; use polylink;
+
 procedure poly is    
-begin
-    put_line("Hello world!");
-    put_line("TEST");
+    begin
+
+    Put_Line("PROGRAM START");
+    readPOLY;
+    writePOLY;
+
+
 end poly;
