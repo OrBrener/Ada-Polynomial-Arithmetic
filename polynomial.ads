@@ -5,11 +5,11 @@ type term;
 
     type term is 
         record
-            coefficient: Integer;
-            degree: Integer;
+            coefficient: integer;
+            degree: integer;
             nextTerm: termPtr;
         end record;
 
-    procedure appendTerm(coefficient: Integer; degree: Integer; appendingTerm: in out termPtr);
+    procedure appendTerm(coefficient: integer; degree: integer; appendingTerm: in out termPtr);
 
 end polynomial;

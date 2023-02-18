@@ -7,6 +7,7 @@ with polylink; use polylink;
 procedure poly is    
 
     leadingTerm : termPtr := null;
+    firstInt : integer := 1;
 
     begin
 
@@ -16,7 +17,7 @@ procedure poly is
     appendTerm(-2, 3, leadingTerm);
     appendTerm(1, 2, leadingTerm);
     appendTerm(4, 0, leadingTerm);
-    writePOLY(leadingTerm);
+    writePOLY(leadingTerm, firstInt);
 
 
 end poly;
