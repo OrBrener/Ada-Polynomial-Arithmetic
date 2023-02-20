@@ -5,8 +5,8 @@ with polynomial; use polynomial;
 
 package polylink is
     
-    procedure readPOLY;
-    procedure writePOLY(currentTerm: in termPtr; numTerms: in out integer);
+    procedure readPOLY(leadingTerm : in out termPtr);
+    procedure writePOLY(currentTerm: in termPtr; numTerms: in integer);
 
 
 end polylink;

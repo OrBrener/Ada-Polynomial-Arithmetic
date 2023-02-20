@@ -7,17 +7,14 @@ with polylink; use polylink;
 procedure poly is    
 
     leadingTerm : termPtr := null;
-    firstInt : integer := 1;
-
+    
     begin
 
     Put_Line("PROGRAM START");
 
-    appendTerm(3, 5, leadingTerm);
-    appendTerm(-2, 3, leadingTerm);
-    appendTerm(1, 2, leadingTerm);
-    appendTerm(4, 0, leadingTerm);
-    writePOLY(leadingTerm, firstInt);
+    readPOLY(leadingTerm);
+
+    writePOLY(leadingTerm, 1);
 
 
 end poly;
