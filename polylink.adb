@@ -24,12 +24,14 @@ package body polylink is
     end readPOLY;
 
 
-    procedure writePOLY(currentTerm: in termPtr; numTerms: in integer) is
+    procedure writePOLY(leadingTerm: in termPtr) is
         isPositive : boolean := true;
-        numTermsOutput : constant integer := numTerms + 1;
+        currentTerm : termPtr := leadingTerm;
+        numTerms : integer := 0;
       begin
 
-      if currentTerm /= null then
+      while currentTerm /= null loop
+        numTerms := numTerms + 1;
         if (currentTerm.coefficient /= 0) then
 
           if (currentTerm.coefficient < 0) then
@@ -50,11 +52,13 @@ package body polylink is
             put(" x ^");
             put(integer'image(currentTerm.degree));
             put("  ");
+          elsif (currentTerm.degree = 0) then
+            put_line("");
           end if;
         end if;
-        writePOLY(currentTerm.nextTerm, numTermsOutput);
-      end if;
 
+        currentTerm := currentTerm.nextTerm;
+      end loop;
     end writePOLY;
     
 
