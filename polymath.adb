@@ -36,15 +36,25 @@ package body polymath is
       polyResult : termPtr := null;
     begin
 
+    -- swap the coefficient signs of the second polynomial
     while (second /= null) loop
       second.coefficient := second.coefficient * (-1);
       second := second.nextTerm;
     end loop;
-
+    -- reset the head 
     second := polyB;
 
+    -- A-B = A+(-B) 
     addpoly(polyA,second,polyResult);
 
+    -- reset the second polynomial to it's original state
+    while (second /= null) loop
+      second.coefficient := second.coefficient * (-1);
+      second := second.nextTerm;
+    end loop;
+    second := polyB;
+
+    -- return the result
     return polyResult;
   end subpoly;
 

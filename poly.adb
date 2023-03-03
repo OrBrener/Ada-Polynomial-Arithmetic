@@ -21,6 +21,8 @@ procedure poly is
     output := subpoly(leadingTerm, test);
     Put_Line ("Subtracting");
     writePOLY(output);
+    put_line("second poly");
+    writePOLY(test);
 
 
 end poly;
