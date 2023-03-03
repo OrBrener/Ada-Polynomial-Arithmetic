@@ -31,4 +31,21 @@ package body polymath is
 
   end addpoly;
 
+  function subpoly(polyA : in termPtr; polyB : in termPtr) return termPtr is
+      second : termPtr := polyB;
+      polyResult : termPtr := null;
+    begin
+
+    while (second /= null) loop
+      second.coefficient := second.coefficient * (-1);
+      second := second.nextTerm;
+    end loop;
+
+    second := polyB;
+
+    addpoly(polyA,second,polyResult);
+
+    return polyResult;
+  end subpoly;
+
 end polymath;

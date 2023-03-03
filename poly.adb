@@ -18,8 +18,8 @@ procedure poly is
     writePOLY(leadingTerm);
     readPOLY(test);
     writePOLY(test);
-    addpoly(leadingTerm, test, output);
-    Put_Line ("Adding");
+    output := subpoly(leadingTerm, test);
+    Put_Line ("Subtracting");
     writePOLY(output);
 
 
