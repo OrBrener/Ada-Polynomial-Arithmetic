@@ -11,12 +11,12 @@ package body polymath is
     begin
     while (first /= null or second /= null) loop
 
-      if (first = null) then
+      if (second.degree > first.degree) then
         appendTerm(second.coefficient, second.degree, polyResult);
 
         second := second.nextTerm;
 
-      elsif (second = null) then
+      elsif (first.degree > second.degree) then
         appendTerm(first.coefficient, first.degree, polyResult);
 
         first := first.nextTerm;
