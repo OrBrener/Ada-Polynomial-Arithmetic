@@ -106,7 +106,7 @@ package body polymath is
       else
         polyResult := addpoly(polyResult, temp);
       end if;
-      
+
       first := first.nextTerm;
       -- reset the head 
       second := polyB;
@@ -119,5 +119,24 @@ package body polymath is
     -- return the result
     return polyResult;
   end multpoly;
+
+  function evalpoly(poly : in termPtr; x : in integer) return integer is
+    polynominal : termPtr := poly;
+    result : integer := 0;
+    begin
+
+    -- for all terms in the polynomial:
+    while (polynominal /= null) loop
+      -- the result is the sum of the term with x substitued in (ex: 5x^3, x=2 == 5*(2)**3 = 40)
+      result := result + (polynominal.coefficient * x**polynominal.degree);
+      polynominal := polynominal.nextTerm;
+    end loop;
+
+    --  reset the poly
+    polynominal := poly;
+
+    -- return the result
+    return result;
+  end evalpoly;
 
 end polymath;

@@ -8,7 +8,7 @@ package polymath is
     function addpoly(polyA : in termPtr; polyB : in termPtr) return termPtr;
     function subpoly(polyA : in termPtr; polyB : in termPtr) return termPtr;
     function multpoly(polyA : in termPtr; polyB : in termPtr) return termPtr;
-    --  procedure evalpoly(polyA : in termPtr; evalNum : in integer; polyResult : out termPtr);
+    function evalpoly(poly : in termPtr; x : in integer) return integer;
 
 
 end polymath;
