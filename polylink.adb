@@ -1,6 +1,9 @@
+--  Name: Or Brener
+--  Student Id: 1140102
+--  CIS*3190 A2 W23
+
 with ada.Text_IO; use Ada.Text_IO;
 with ada.Integer_Text_IO; use Ada.Integer_Text_IO;
---  with polynomial; use polynomial;
 
 package body polylink is 
 
@@ -10,7 +13,6 @@ package body polylink is
       coefficient : integer;
       begin
 
-      put_line("Enter a polynomial");
       put("Highest exponent: ");
       get(highestExponent);
       
