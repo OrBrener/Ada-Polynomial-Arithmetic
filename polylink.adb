@@ -18,7 +18,10 @@ package body polylink is
         currentExponent := hightestExponent - index;
         put("Coefficient for exponent" & integer'image(currentExponent) & ": "); 
         get(coefficient);
-        appendTerm(coefficient, currentExponent, leadingTerm);
+        -- don't store terms with a coefficient of zero
+        if (coefficient /= 0) then
+          appendTerm(coefficient, currentExponent, leadingTerm);
+        end if;
       end loop;
 
     end readPOLY;

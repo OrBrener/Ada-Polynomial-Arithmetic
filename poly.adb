@@ -18,11 +18,10 @@ procedure poly is
     writePOLY(leadingTerm);
     readPOLY(test);
     writePOLY(test);
-    output := subpoly(leadingTerm, test);
-    Put_Line ("Subtracting");
+    output := multpoly(leadingTerm, test);
+    Put_Line ("Multiplying:");
     writePOLY(output);
-    put_line("second poly");
-    writePOLY(test);
+
 
 
 end poly;
