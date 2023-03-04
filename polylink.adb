@@ -5,19 +5,24 @@ with ada.Integer_Text_IO; use Ada.Integer_Text_IO;
 package body polylink is 
 
     procedure readPOLY(leadingTerm : in out termPtr) is
-      hightestExponent : integer;
+      highestExponent : integer;
       currentExponent : integer;
       coefficient : integer;
       begin
 
       put_line("Enter a polynomial");
       put("Highest exponent: ");
-      get(hightestExponent);
+      get(highestExponent);
       
-      for index in 0..hightestExponent loop
-        currentExponent := hightestExponent - index;
+      for index in 0..highestExponent loop
+        currentExponent := highestExponent - index;
         put("Coefficient for exponent" & integer'image(currentExponent) & ": "); 
         get(coefficient);
+
+        if ((highestExponent = 0) and (coefficient = 0)) then
+          leadingTerm := null;
+          exit;
+        end if;
         -- don't store terms with a coefficient of zero
         if (coefficient /= 0) then
           appendTerm(coefficient, currentExponent, leadingTerm);
@@ -32,6 +37,10 @@ package body polylink is
         currentTerm : termPtr := leadingTerm;
         numTerms : integer := 0;
       begin
+
+      if (leadingTerm = null) then
+        put_line("No Polynomial -- empty list");
+      end if;
 
       --  for all the terms in the polynomial
       while currentTerm /= null loop
