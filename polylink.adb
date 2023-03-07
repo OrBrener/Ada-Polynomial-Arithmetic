@@ -5,22 +5,43 @@
 with ada.Text_IO; use Ada.Text_IO;
 with ada.Integer_Text_IO; use Ada.Integer_Text_IO;
 
-package body polylink is 
+package body polylink is
+
+    -- validate that the user input is an integer
+    procedure getInteger(num : in out integer) is
+      begin
+        loop
+        begin 
+          -- get the input
+          get(num);
+          return;
+          -- if not an integer, throw an exception, and keep asking for input unitl valid
+        exception
+          when data_error =>
+          skip_line;
+          put_line("Integer expected, try again");
+          end;
+        end loop;
+    end getInteger;
 
     procedure readPOLY(leadingTerm : in out termPtr) is
-      highestExponent : integer;
-      currentExponent : integer;
-      coefficient : integer;
+      highestExponent : integer := -1;
+      currentExponent : integer := -1;
+      coefficient : integer := 0;
       begin
 
+      -- get the highest exponent
       put("Highest exponent: ");
-      get(highestExponent);
+      getInteger(highestExponent);
       
+      -- for all terms highest exponent to zero:
       for index in 0..highestExponent loop
+        -- get the coefficent 
         currentExponent := highestExponent - index;
         put("Coefficient for exponent" & integer'image(currentExponent) & ": "); 
-        get(coefficient);
+        getInteger(coefficient);
 
+        -- if the user wants a zero polynomial
         if ((highestExponent = 0) and (coefficient = 0)) then
           leadingTerm := null;
           exit;

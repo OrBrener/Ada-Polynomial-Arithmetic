@@ -6,6 +6,7 @@ with polynomial; use polynomial;
 
 package polylink is
     
+    procedure getInteger(num : in out integer);
     procedure readPOLY(leadingTerm : in out termPtr);
     procedure writePOLY(leadingTerm: in termPtr);
 

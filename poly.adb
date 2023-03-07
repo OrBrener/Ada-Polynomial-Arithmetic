@@ -39,7 +39,7 @@ procedure poly is
         Put_Line("  5. Exit program");
         Put_Line("PLEASE ENTER YOUR CHOICE: ");
         -- get menu choice from user
-        get(menuChoice);
+        getInteger(menuChoice);
         Put_Line("");
 
         -- depending on the menu choice, do the requested action
@@ -91,7 +91,8 @@ procedure poly is
                 polyResult := subpoly(poly1,poly2);
                 put_line("Differnece of the polynomials:");
                 writePOLY(polyResult);
-
+            
+            -- multiply
             when 3 =>
                 put_line("MULTIPLYING 2 POLYNOMIALS");
                 put_line("Must first input 2 polynomials");
@@ -115,6 +116,7 @@ procedure poly is
                 put_line("Product of the polynomials:");
                 writePOLY(polyResult);
 
+            -- evaluate
             when 4 =>
                 put_line("EVALUATE A POLYNOMIAL");
                 put_line("Must first input a polynomial and the variable to evaluate it with");
@@ -128,7 +130,7 @@ procedure poly is
                 put_line("");
 
                 put_line("Input value to evaluate with (x=?)");
-                get(evalNum);
+                getInteger(evalNum);
                 put_line("");
                 put_line("x =" & integer'image(evalNum));
                 put_line("");
@@ -136,9 +138,11 @@ procedure poly is
                 evalResult := evalpoly(poly1,evalNum);
                 put_line("Evaluate polynomial =" & integer'image(evalResult));
 
+            -- end the program
             when 5 =>
                 put_line("THANKS FOR USING THE PROGRAM, EXITING...");
 
+            -- all other integers:
             when others =>
                 Put_Line("NOT A VALID INPUT, TRY AGAIN");
         end case;
