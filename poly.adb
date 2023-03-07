@@ -3,7 +3,7 @@
 --  CIS*3190 A2 W23
 
 with Ada.Text_IO; use Ada.Text_IO;
-with ada.Integer_Text_IO; use Ada.Integer_Text_IO;
+-- with ada.Integer_Text_IO; use Ada.Integer_Text_IO;
 
 with polynomial; use polynomial;
 with polylink; use polylink;
@@ -89,7 +89,7 @@ procedure poly is
                 put_line("");
 
                 polyResult := subpoly(poly1,poly2);
-                put_line("Differnece of the polynomials:");
+                put_line("Difference of the polynomials:");
                 writePOLY(polyResult);
             
             -- multiply
